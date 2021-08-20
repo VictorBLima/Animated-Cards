@@ -1,0 +1,121 @@
+:root{
+    --backgroung-color:#17141d;
+    --scrollbar-background:#201c29;
+    --scrollbar-shadow:hsla(0, 0%, 100%, .25);
+    --scrollbar-inset:rgba(0, 0, 0, .25);
+    --stroke:#ff8a00;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: var(--backgroung-color);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-list{
+    display: flex;
+    padding: 3rem;
+    overflow-x: scroll;
+
+}
+.card-list::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+.card-list::-webkit-scrollbar-thumb{
+    background:var(--scrollbar-background);
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px var(--scrollbar-shadow), inset -2px -2px 2px var(--scrollbar-inset);
+}
+.card-list::-webkit-scrollbar-track{
+    background: linear-gradient(90deg,#201c29,#201c29,#201c29 1px,#17141d 0,#17141d);
+}
+.card{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 350px;
+    width: 400px;
+    min-width: 250px;
+    padding: 1.5rem;
+    
+    border-radius: 16px;
+    background-color:var(--backgroung-color) ;
+    box-shadow: -1rem 0 3rem #000;
+    transition: 0.3s;
+}
+.card:hover{
+    transform: translateY(-1rem);
+}
+.card:hover~.card{
+    transform: translateX(130px);
+}
+.card:not(:first-child){
+    margin-left: -130px;
+}
+.card-author{
+    position: relative;
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    align-items: center;
+    margin: 3rem 0 0;
+}
+.author-avatar {
+    grid-area: auto;
+    align-self: start;
+    position: relative;
+    box-sizing: border-box;
+}
+.author-avatar img{
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    margin: 16px 10px;
+}
+.half-circle{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 48px;
+    fill: none;
+    stroke:var(--stroke) ;
+    stroke-width: 8;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+.author-name{
+    grid-area: auto;
+    box-sizing: border-box;
+    margin-left: 20px;
+    
+    transition: 0.2s;
+}
+.author-name-prefix{
+    font-style: normal;
+    font-weight: 700;
+    color: #7a7a8c;
+    /* margin-left: 20px; */
+}
+.card-header h2:hover{
+    background: linear-gradient(90deg,#e52e71,#ff8a00);
+    text-shadow: none;
+    background-clip: text;
+    border-color: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break:clone;
+}
+.author-name:hover{
+    background:linear-gradient(90deg,#ff8a00,#e52e71);
+    text-shadow: none;
+    background-clip: text;
+    border-color: white;
+    -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+    -webkit-box-decoration-break:clone;
+
+}
